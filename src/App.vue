@@ -6,6 +6,7 @@ const digimonName = ref('')
 const digimonNameInput = ref('')
 const digimonList = ref([])
 const digimonImage = ref('')
+resetDigimon()
 
 // Fetch Digimon desde digi-api cuando el input pierde el foco
 async function fetchDigimon() {
@@ -23,12 +24,10 @@ async function fetchDigimon() {
       digimonList.value = data.content
       digimonImage.value = data.content[0].image
     } else {
-      digimonList.value = []
-      digimonImage.value = ''
+      resetDigimon()
     }
   } catch (e) {
-    digimonList.value = []
-    digimonImage.value = ''
+    resetDigimon()
     console.error('Error fetching Digimon:', e)
   }
 }
@@ -45,8 +44,8 @@ function selectDigimon(id) {
 // Reiniciar la información del Digimon
 function resetDigimon() {
   digimonList.value = []
-  digimonImage.value = ''
-  digimonName.value = ''
+  digimonImage.value = './src/assets/digimon.png'
+  digimonName.value = 'Digimon'
 }
 </script>
 
