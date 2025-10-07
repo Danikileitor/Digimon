@@ -45,14 +45,13 @@ function resetDigimon() {
   digimonImage.value = digimonDefaultImage
   digimonName.value = 'Digimon'
 }
-
 </script>
 
 <template>
   <header>
     <div class="wrapper">
       <h1>DIGIMON</h1>
-      <input v-model="digimonNameInput" @blur="fetchDigimon" placeholder="Nombre del Digimon" />
+      <input v-model="digimonNameInput" @blur="fetchDigimon" placeholder="Nombre del Digimon" class="digimon-input" />
     </div>
   </header>
 
@@ -70,6 +69,25 @@ function resetDigimon() {
 <style scoped>
 header {
   line-height: 1.5;
+}
+
+.digimon-input {
+  padding: 0.5em 1em;
+  font-size: 1.1em;
+  border: 2px solid #4b9cd3;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  background: #f7fafd;
+  color: #222;
+  box-shadow: 0 2px 8px rgba(75, 156, 211, 0.07);
+}
+
+.digimon-input:focus {
+  border-color: #2d6fa3;
+  box-shadow: 0 0 0 2px #b3e0ff;
 }
 
 @media (min-width: 1024px) {

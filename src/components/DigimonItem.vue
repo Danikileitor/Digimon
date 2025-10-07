@@ -27,6 +27,7 @@ defineProps({
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 24px;
 }
 
 .digimon-title {
