@@ -1,11 +1,11 @@
 <script setup>
 import { ref } from 'vue'
 import DigimonItem from './components/DigimonItem.vue'
+import digimonDefaultImage from './assets/digimon.png'
 
 const digimonName = ref('')
 const digimonNameInput = ref('')
 const digimonList = ref([])
-import digimonDefaultImage from './assets/digimon.png'
 const digimonImage = ref('')
 resetDigimon()
 
