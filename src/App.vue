@@ -71,14 +71,25 @@ header {
   line-height: 1.5;
 }
 
+h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  color: #4b9cd3;
+  text-shadow: 0 2px 8px rgba(75, 156, 211, 0.15);
+  margin: 0.2em 0;
+  text-align: center;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+
 .digimon-input {
   padding: 0.5em 1em;
   font-size: 1.1em;
+  text-align: center;
   border: 2px solid #4b9cd3;
   border-radius: 8px;
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
-  margin-top: 1em;
   margin-bottom: 1em;
   background: #f7fafd;
   color: #222;
