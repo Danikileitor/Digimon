@@ -2,13 +2,9 @@
   <div class="digimon-card">
     <h2 class="digimon-title">{{ name }}</h2>
     <div class="digimon-content">
-      <button class="side-btn left-btn" @click="$emit('left-click')">
-        ◀
-      </button>
+      <button class="side-btn left-btn" @click="$emit('left-click')">◀</button>
       <img :src="image" :alt="name" class="digimon-image" />
-      <button class="side-btn right-btn" @click="$emit('right-click')">
-        ▶
-      </button>
+      <button class="side-btn right-btn" @click="$emit('right-click')">▶</button>
     </div>
   </div>
 </template>
