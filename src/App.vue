@@ -5,6 +5,7 @@ import DigimonItem from './components/DigimonItem.vue'
 const digimonName = ref('')
 const digimonNameInput = ref('')
 const digimonList = ref([])
+import digimonDefaultImage from './assets/digimon.png'
 const digimonImage = ref('')
 resetDigimon()
 
@@ -41,12 +42,12 @@ function selectDigimon(id) {
   }
 }
 
-// Reiniciar la información del Digimon
 function resetDigimon() {
   digimonList.value = []
-  digimonImage.value = './src/assets/digimon.png'
+  digimonImage.value = digimonDefaultImage
   digimonName.value = 'Digimon'
 }
+
 </script>
 
 <template>
