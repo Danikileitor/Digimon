@@ -77,13 +77,15 @@ header {
 @media (min-width: 1024px) {
   header {
     display: flex;
+    flex-direction: column;
     place-items: center;
     justify-content: center;
   }
 
   header .wrapper {
     display: flex;
-    place-items: flex-start;
+    flex-direction: column;
+    place-items: center;
     flex-wrap: wrap;
   }
 }
