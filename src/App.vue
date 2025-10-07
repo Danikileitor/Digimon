@@ -29,6 +29,7 @@ async function fetchDigimon() {
   } catch (e) {
     digimonList.value = []
     digimonImage.value = ''
+    console.error('Error fetching Digimon:', e)
   }
 }
 
