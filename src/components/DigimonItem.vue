@@ -38,6 +38,7 @@ defineProps({
   text-align: center;
   font-size: 1.4rem;
   font-weight: bold;
+  color: black;
 }
 
 .digimon-content {
