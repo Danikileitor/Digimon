@@ -1,16 +1,70 @@
 <script setup>
+import { ref } from 'vue'
 import DigimonItem from './components/DigimonItem.vue'
+
+const digimonName = ref('')
+const digimonNameInput = ref('')
+const digimonList = ref([])
+const digimonImage = ref('')
+
+// Fetch Digimon desde digi-api cuando el input pierde el foco
+async function fetchDigimon() {
+  if (!digimonNameInput.value.trim()) {
+    digimonList.value = []
+    digimonImage.value = ''
+    digimonName.value = ''
+    return
+  }
+  digimonName.value = digimonNameInput.value
+  try {
+    const res = await fetch(`https://digi-api.com/api/v1/digimon?name=${encodeURIComponent(digimonNameInput.value)}`)
+    const data = await res.json()
+    if (data.content && data.content.length) {
+      digimonList.value = data.content
+      digimonImage.value = data.content[0].image
+    } else {
+      digimonList.value = []
+      digimonImage.value = ''
+    }
+  } catch (e) {
+    digimonList.value = []
+    digimonImage.value = ''
+  }
+}
+
+// Seleccionar un Digimon de la lista
+function selectDigimon(id) {
+  digimonList.value = digimonList.value.filter(d => d.id === id)
+  if (digimonList.value.length) {
+    digimonName.value = digimonList.value[0].name
+    digimonImage.value = digimonList.value[0].image
+  }
+}
+
+// Reiniciar la información del Digimon
+function resetDigimon() {
+  digimonList.value = []
+  digimonImage.value = ''
+  digimonName.value = ''
+}
 </script>
 
 <template>
   <header>
     <div class="wrapper">
       <h1>DIGIMON</h1>
+      <input v-model="digimonNameInput" @blur="fetchDigimon" placeholder="Nombre del Digimon" />
     </div>
   </header>
 
   <main>
-    <DigimonItem name="Agumon" image="https://digi-api.com/images/digimon/w/Agumon.png" />
+    <div v-if="digimonList.length">
+      <DigimonItem v-for="digimon in digimonList" :key="digimon.id" :name="digimon.name" :image="digimon.image"
+        @click="selectDigimon(digimon.id)" />
+    </div>
+    <div v-else>
+      <DigimonItem :name="digimonName || 'Digimon'" :image="digimonImage" @error="resetDigimon" />
+    </div>
   </main>
 </template>
 
