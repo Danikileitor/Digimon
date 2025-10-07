@@ -12,9 +12,7 @@ resetDigimon()
 // Fetch Digimon desde digi-api cuando el input pierde el foco
 async function fetchDigimon() {
   if (!digimonNameInput.value.trim()) {
-    digimonList.value = []
-    digimonImage.value = ''
-    digimonName.value = ''
+    resetDigimon()
     return
   }
   digimonName.value = digimonNameInput.value
